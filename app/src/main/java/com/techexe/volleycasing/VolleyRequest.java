@@ -1,7 +1,6 @@
 package com.techexe.volleycasing;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
@@ -69,7 +68,7 @@ public class VolleyRequest {
     }
 
 
-    public JsonObjectRequest jsonObjectRequest(@NonNull String Url, @NonNull int method, @NonNull JSONObject jsonObject, final OnResponse onResponse) {
+    public JsonObjectRequest jsonObjectRequest(String Url,  int method,JSONObject jsonObject, final OnResponse onResponse) {
         try {
             if (context == null){
                 Log.e("Error","Context can not be null");
@@ -185,7 +184,7 @@ public class VolleyRequest {
 
 
 
-    public JsonArrayRequest jsonArrayRequest(@NonNull String Url, @NonNull int method, @NonNull JSONArray jsonArray, final OnResponse onResponse) {
+    public JsonArrayRequest jsonArrayRequest(String Url, int method, JSONArray jsonArray, final OnResponse onResponse) {
         try {
             if (context == null){
                 Log.e("Error","Context can not be null");
