@@ -32,8 +32,8 @@ android {
 //        applicationId "com.techexe.volleycasing"
         minSdkVersion 14
         targetSdkVersion 25
-        versionCode 2
-        versionName "1.1"
+        versionCode 3
+        versionName "1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -60,9 +60,45 @@ dependencies {
 def siteUrl = 'https://github.com/androidzila/VolleyCasing'      // Homepage URL of the library
 def gitUrl = 'https://github.com/androidzila/VolleyCasing.git'   // Git repository URL
 group = "com.techexe.vollycasing"                      // Maven Group ID for the artifact
+version = '1.4'
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+
+install {
+    repositories.mavenInstaller {
+        pom.project {
+            name 'VolleyCasing'
+            description 'A wrapper library for basic functions of Google Play Services APIs'
+            url 'https://github.com/androidzila/VolleyCasing'
+            inceptionYear '2015'
+
+            packaging 'aar'
+            groupId 'com.techexe.vollycasing'
+            artifactId 'app'
+            version '1.4'
+
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'volleycasing'
+                }
+            }
+            scm {
+                connection 'https://github.com/androidzila/VolleyCasing.git'
+                url 'https://github.com/androidzila/VolleyCasing'
+
+            }
+            developers {
+                developer {
+                    name 'Jaimin Patel'
+                }
+            }
+        }
+    }
+}
 
 bintray {
     user = properties.getProperty("bintray.user")
@@ -78,8 +114,9 @@ bintray {
         licenses = ["Apache-2.0"]
         publish = true
         version {
-            name = '1.1'
-            vcsTag = '1.1'
+            name = '1.4'
+            vcsTag = '1.4'
+            released  = new Date()
             gpg {
                 sign = true //Determines whether to GPG sign the files. The default is false
                 passphrase = properties.getProperty("bintray.gpg.password")
