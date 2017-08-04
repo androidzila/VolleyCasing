@@ -1,7 +1,7 @@
 package com.techexe.volleycasing.Common;
 
 /**
- * Created by rgi-5 on 23/11/16.
+ * Created by Jaimin patel on 31/7/17.
  */
 
 public class HTTPStatusCodes {

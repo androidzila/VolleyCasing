@@ -1,12 +1,13 @@
 package com.techexe.volleycasing.Common;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.util.Log;
+import android.support.v7.app.AlertDialog;
 
 /**
- * Created by rgi-5 on 15/11/16.
+ * Created by Jaimin patel on 31/7/17.
  */
 
 public class NetworkUtils {
@@ -31,7 +32,15 @@ public class NetworkUtils {
     public static boolean isNetworkAvailable(Context context) {
         boolean isConnect = isInternetConnected(context);
         if (!isConnect) {
-            Log.d("Internet","Error");
+            new AlertDialog.Builder(context)
+                    .setMessage("No Internet Connection")
+                    .setCancelable(false)
+                    .setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    }).show();
         }
         return isConnect;
     }
